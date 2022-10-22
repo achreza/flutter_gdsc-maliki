@@ -30,7 +30,13 @@ class MemberProvider {
       await dio!.delete('/member/$id');
 
   Future<Response> update(int id, updateMemberRequest data) =>
-      dio!.put('/member/$id');
+      dio!.patch('/member/$id',
+          options: Options(headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          }),
+          data: data.toJson());
 
-  Future<Response> detail(int id) => dio!.get('member/$id');
+  Future<Response> detail(int id) => dio!.get('/member/$id');
+
+  Future<Response> delete(int id) => dio!.delete('/member/$id');
 }

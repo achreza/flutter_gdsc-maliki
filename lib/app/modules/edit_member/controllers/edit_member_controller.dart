@@ -3,6 +3,7 @@ import 'package:flutter_gdscmaliki/app/data/dto/request/update_member_request.da
 import 'package:flutter_gdscmaliki/app/data/models/member_model.dart';
 import 'package:flutter_gdscmaliki/app/data/services/member_service.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/controllers/home_controller.dart';
+import 'package:flutter_gdscmaliki/constants/constant.dart';
 import 'package:get/get.dart';
 
 class EditMemberController extends GetxController {
@@ -47,7 +48,8 @@ class EditMemberController extends GetxController {
         await memberService.updateMember(id, dto);
         homeController.fetchAllMembers();
         Get.offNamedUntil('/home', ModalRoute.withName('/home'));
-        Get.snackbar('Update Success', 'Order berhasil diubah');
+        Get.snackbar('Update Success', 'Order berhasil diubah',
+            backgroundColor: primaryColor, colorText: Colors.white);
       } catch (e) {
         Get.snackbar('Error', e.toString().replaceAll('Exception: ', ''));
       } finally {

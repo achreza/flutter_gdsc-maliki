@@ -37,6 +37,15 @@ class MemberService {
     // return memberResponse.data;
   }
 
+  Future<void> deleteMember(int id) async {
+    final response = await memberProvider.delete(id);
+    if (response.statusCode == HttpStatus.ok) {
+      log('Delete Success');
+    } else {
+      log('Delete Failed');
+    }
+  }
+
   Future<void> createOrder(CreateMemberRequest requestData) async {
     final response = await memberProvider.postMember(requestData);
 
