@@ -14,11 +14,19 @@ class MemberCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color backgroundFoto = data!.role == 'Lead'
+        ? Colors.blue
+        : data!.role == 'Core Team'
+            ? Colors.red
+            : data!.role == 'Association Core'
+                ? Colors.green
+                : Colors.grey;
+
     return Container(
       margin: EdgeInsets.symmetric(horizontal: kDefaultMargin * 3),
       child: InkWell(
         onTap: () {
-          // Get.toNamed(Routes.DETAIL_MEMBER, arguments: data.id);
+          Get.toNamed(Routes.DETAIL_MEMBER, arguments: data);
         },
         child: Container(
             padding: EdgeInsets.symmetric(
@@ -29,8 +37,18 @@ class MemberCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
               border: Border.all(color: Colors.grey.shade200, width: 1),
             ),
-            child: Column(
+            child: Row(
               children: [
+                Container(
+                  margin: EdgeInsets.only(right: kDefaultMargin * 2),
+                  child: CircleAvatar(
+                      radius: 24,
+                      backgroundColor: backgroundFoto,
+                      child: Icon(
+                        Icons.person,
+                        size: 24,
+                      )),
+                ),
                 Text(data!.nama.toString()),
               ],
             )),

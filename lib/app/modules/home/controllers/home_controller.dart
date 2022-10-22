@@ -32,4 +32,8 @@ class HomeController extends GetxController {
       isFetchingMember.value = false;
     }
   }
+
+  void navigateToCreateMember() {
+    Get.toNamed('/create-member');
+  }
 }

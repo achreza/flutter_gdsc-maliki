@@ -167,6 +167,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  flutter_screenutil:
+    dependency: "direct main"
+    description:
+      name: flutter_screenutil
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.5.4"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -427,6 +434,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+  wc_form_validators:
+    dependency: "direct main"
+    description:
+      name: wc_form_validators
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   win32:
     dependency: transitive
     description:

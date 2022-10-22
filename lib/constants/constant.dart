@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gdscmaliki/app/modules/login/controllers/login_controller.dart';
 
 import '../firebase_options.dart';
@@ -18,3 +20,5 @@ const apiBaseUrl = 'http://192.168.1.104:3000';
 
 final kDefaultPadding = 8.0;
 final kDefaultMargin = 8.0;
+
+Color primaryColor = Colors.black;

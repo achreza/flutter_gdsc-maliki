@@ -1,7 +1,11 @@
 import 'package:get/get.dart';
 
+import 'package:flutter_gdscmaliki/app/modules/create_member/bindings/create_member_binding.dart';
+import 'package:flutter_gdscmaliki/app/modules/create_member/views/create_member_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/detail_member/bindings/detail_member_binding.dart';
 import 'package:flutter_gdscmaliki/app/modules/detail_member/views/detail_member_view.dart';
+import 'package:flutter_gdscmaliki/app/modules/edit_member/bindings/edit_member_binding.dart';
+import 'package:flutter_gdscmaliki/app/modules/edit_member/views/edit_member_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/bindings/home_binding.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/views/home_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/login/bindings/login_binding.dart';
@@ -43,6 +47,16 @@ class AppPages {
       name: _Paths.DETAIL_MEMBER,
       page: () => DetailMemberView(),
       binding: DetailMemberBinding(),
+    ),
+    GetPage(
+      name: _Paths.CREATE_MEMBER,
+      page: () => CreateMemberView(),
+      binding: CreateMemberBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_MEMBER,
+      page: () => EditMemberView(),
+      binding: EditMemberBinding(),
     ),
   ];
 }

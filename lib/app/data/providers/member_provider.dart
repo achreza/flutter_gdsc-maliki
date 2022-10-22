@@ -24,13 +24,11 @@ class MemberProvider {
     return response;
   }
 
-  Future<Response<Member>> postMember(Member member) async => await dio!.get(
-        '/member',
-      );
+  Future<Response> postMember(CreateMemberRequest data) async =>
+      await dio!.post('/member', data: data.toJson());
+
   Future<Response> deleteMember(int id) async =>
       await dio!.delete('/member/$id');
-
-  Future<Response> create(CreateMemberRequest data) => dio!.post('/member');
 
   Future<Response> update(int id, updateMemberRequest data) =>
       dio!.put('/member/$id');

@@ -1,20 +1,12 @@
+import 'package:flutter_gdscmaliki/app/data/models/member_model.dart';
 import 'package:get/get.dart';
 
 class DetailMemberController extends GetxController {
   //TODO: Implement DetailMemberController
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  Data member = Get.arguments;
 
-  @override
-  void onReady() {
-    super.onReady();
+  void navigateToEditMember() {
+    Get.toNamed('/edit-member', arguments: member);
   }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

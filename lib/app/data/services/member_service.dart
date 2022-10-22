@@ -40,13 +40,13 @@ class MemberService {
   }
 
   Future<void> createOrder(CreateMemberRequest requestData) async {
-    final response = await memberProvider.create(requestData);
+    final response = await memberProvider.postMember(requestData);
 
     switch (response.statusCode) {
       case HttpStatus.badRequest:
-        throw Exception('Gagal membuat order');
+        throw Exception('Gagal membuat member');
       case HttpStatus.unprocessableEntity:
-        throw Exception('Gagal membuat order');
+        throw Exception('Gagal membuat member');
       case null:
         throw Exception('Gagal menghubungkan ke server');
       default:

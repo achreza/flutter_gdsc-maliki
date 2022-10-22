@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gdscmaliki/app/components/lists/member_list.dart';
+import 'package:flutter_gdscmaliki/constants/constant.dart';
 
 import 'package:get/get.dart';
 
@@ -10,6 +11,11 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     controller.fetchAllMembers();
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Image.asset('assets/gdsc_white.png', scale: 15),
+        backgroundColor: Colors.black,
+      ),
       body: Obx(
         () => controller.isFetchingMember.isTrue
             ? _LoadingState()
@@ -20,8 +26,9 @@ class HomeView extends GetView<HomeController> {
       floatingActionButton: Obx(
         () => controller.members.isNotEmpty
             ? FloatingActionButton(
-                onPressed: () {},
-                child: Icon(Icons.add),
+                backgroundColor: primaryColor,
+                onPressed: () => controller.navigateToCreateMember(),
+                child: Icon(Icons.person_add),
               )
             : Container(),
       ),
@@ -44,14 +51,11 @@ class _NotEmptyState extends StatelessWidget {
           children: [
             _PageTitle(),
             Container(
+              margin: EdgeInsets.only(
+                  left: kDefaultMargin * 2, top: kDefaultMargin),
               child: Text(
                 'Member Aktif',
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
-              ),
-              margin: EdgeInsets.only(
-                left: 3,
-                top: 2,
-                bottom: 1,
               ),
             ),
             MemberList(data: controller.members),
@@ -128,9 +132,8 @@ class _PageTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        left: 3,
-        right: 3,
-        top: 2,
+        left: kDefaultPadding * 2,
+        top: kDefaultPadding * 2,
       ),
       child: Text(
         'List Member',

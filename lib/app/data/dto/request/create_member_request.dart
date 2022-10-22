@@ -2,7 +2,7 @@
 
 class CreateMemberRequest {
   final String nama;
-  final String nim;
+  final int nim;
   final String role;
   final String bidang;
 
@@ -13,7 +13,7 @@ class CreateMemberRequest {
     required this.bidang,
   });
 
-  Map<String, dynamic> toJson() => {
+  Map<dynamic, dynamic> toJson() => {
         'nama': nama,
         'nim': nim,
         'role': role,

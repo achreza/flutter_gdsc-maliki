@@ -2,7 +2,7 @@
 
 class updateMemberRequest {
   final String nama;
-  final String nim;
+  final int nim;
   final String role;
   final String bidang;
 
