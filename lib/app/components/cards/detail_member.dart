@@ -25,7 +25,7 @@ class DetailMemberView extends StatelessWidget {
     try {
       await memberService.deleteMember(id);
       homeController.fetchAllMembers();
-      Get.offNamedUntil('/home', ModalRoute.withName('/home'));
+      Get.offAllNamed('/home');
       Get.snackbar('Delete Success',
           'Member dengan Nama : ${member.nama} berhasil dihapus',
           backgroundColor: primaryColor, colorText: Colors.white);

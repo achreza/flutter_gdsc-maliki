@@ -47,7 +47,7 @@ class EditMemberController extends GetxController {
       try {
         await memberService.updateMember(id, dto);
         homeController.fetchAllMembers();
-        Get.offNamedUntil('/home', ModalRoute.withName('/home'));
+        Get.offAllNamed('/home');
         Get.snackbar('Update Success', 'Order berhasil diubah',
             backgroundColor: primaryColor, colorText: Colors.white);
       } catch (e) {

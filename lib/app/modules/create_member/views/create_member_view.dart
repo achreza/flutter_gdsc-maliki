@@ -15,23 +15,23 @@ class CreateMemberView extends GetView<CreateMemberController> {
     {
       'value': 'Lead',
       'label': 'Lead Role',
-      'icon': Icon(Icons.stop),
+      'icon': Icon(Icons.star),
       'textStyle': TextStyle(color: Colors.blue),
     },
     {
       'value': 'Core Team',
       'label': 'Core Team Role',
-      'icon': Icon(Icons.fiber_manual_record),
+      'icon': Icon(Icons.star),
       'textStyle': TextStyle(color: Colors.red),
     },
     {
       'value': 'Association Core',
       'label': 'Association Core Role',
-      'icon': Icon(Icons.grade),
+      'icon': Icon(Icons.star),
       'textStyle': TextStyle(color: Colors.green),
     },
     {
-      'role': 'Member',
+      'value': 'Member',
       'label': 'Member Role',
       'icon': Icon(Icons.grade),
       'textStyle': TextStyle(color: Colors.grey),
