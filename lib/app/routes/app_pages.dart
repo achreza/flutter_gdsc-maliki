@@ -1,18 +1,22 @@
 import 'package:get/get.dart';
 
+import 'package:flutter_gdscmaliki/app/modules/detail_member/bindings/detail_member_binding.dart';
+import 'package:flutter_gdscmaliki/app/modules/detail_member/views/detail_member_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/bindings/home_binding.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/views/home_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/login/bindings/login_binding.dart';
 import 'package:flutter_gdscmaliki/app/modules/login/views/login_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/register/bindings/register_binding.dart';
 import 'package:flutter_gdscmaliki/app/modules/register/views/register_view.dart';
+import 'package:flutter_gdscmaliki/app/modules/splash/bindings/splash_binding.dart';
+import 'package:flutter_gdscmaliki/app/modules/splash/views/splash_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.SPLASH;
 
   static final routes = [
     GetPage(
@@ -29,6 +33,16 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => RegisterView(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH,
+      page: () => SplashView(),
+      binding: SplashBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_MEMBER,
+      page: () => DetailMemberView(),
+      binding: DetailMemberBinding(),
     ),
   ];
 }

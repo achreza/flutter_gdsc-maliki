@@ -14,7 +14,8 @@ void main() async {
   // });
   runApp(
     GetMaterialApp(
-      title: "Application",
+      title: "GDSC Maliki",
+      debugShowCheckedModeBanner: false,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),
