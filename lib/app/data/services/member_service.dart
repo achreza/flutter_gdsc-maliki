@@ -27,8 +27,6 @@ class MemberService {
     final ListMemberResponse memberResponse =
         ListMemberResponse.fromJson(response!.data);
 
-    print('MemberResponse : ' + memberResponse.data.toString());
-
     return memberResponse;
   }
 
@@ -53,14 +51,14 @@ class MemberService {
     }
   }
 
-  Future<void> updateOrder(int id, updateMemberRequest requestData) async {
+  Future<void> updateMember(int id, updateMemberRequest requestData) async {
     final response = await memberProvider.update(id, requestData);
 
     switch (response.statusCode) {
       case HttpStatus.badRequest:
-        throw Exception('Gagal mengubah order');
+        throw Exception('Gagal mengubah Member');
       case HttpStatus.unprocessableEntity:
-        throw Exception('Gagal mengubah order');
+        throw Exception('Gagal mengubah Member');
       case null:
         throw Exception('Gagal menghubungkan ke server');
       default:

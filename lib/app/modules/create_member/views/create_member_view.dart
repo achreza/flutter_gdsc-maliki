@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gdscmaliki/constants/constant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:select_form_field/select_form_field.dart';
 import 'package:wc_form_validators/wc_form_validators.dart';
 
 import 'package:get/get.dart';
@@ -9,6 +10,33 @@ import '../controllers/create_member_controller.dart';
 
 class CreateMemberView extends GetView<CreateMemberController> {
   final inputSpace = 7.0;
+
+  final List<Map<String, dynamic>> _items = [
+    {
+      'value': 'Lead',
+      'label': 'Lead Role',
+      'icon': Icon(Icons.stop),
+      'textStyle': TextStyle(color: Colors.blue),
+    },
+    {
+      'value': 'Core Team',
+      'label': 'Core Team Role',
+      'icon': Icon(Icons.fiber_manual_record),
+      'textStyle': TextStyle(color: Colors.red),
+    },
+    {
+      'value': 'Association Core',
+      'label': 'Association Core Role',
+      'icon': Icon(Icons.grade),
+      'textStyle': TextStyle(color: Colors.green),
+    },
+    {
+      'role': 'Member',
+      'label': 'Member Role',
+      'icon': Icon(Icons.grade),
+      'textStyle': TextStyle(color: Colors.grey),
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +140,7 @@ class CreateMemberView extends GetView<CreateMemberController> {
                       ),
                       SizedBox(height: inputSpace),
                       TextFormField(
-                        keyboardType: TextInputType.number,
+                        keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: 'Masukkan Bidang Pengguna',
@@ -136,13 +164,16 @@ class CreateMemberView extends GetView<CreateMemberController> {
                         ),
                       ),
                       SizedBox(height: inputSpace),
-                      TextFormField(
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Masukkan Role Pengguna',
-                        ),
-                        onChanged: (value) => controller.role.value = value,
+                      SelectFormField(
+                        type: SelectFormFieldType.dropdown, // or can be dialog
+                        icon: Icon(Icons.star),
+                        labelText: 'Role',
+                        items: _items,
+                        controller: controller.pilihanRole,
+                        onChanged: (value) =>
+                            controller.pilihanRole!.text = value,
+                        onSaved: (value) =>
+                            controller.pilihanRole!.text = value!,
                       ),
                     ],
                   ),

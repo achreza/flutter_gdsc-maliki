@@ -21,6 +21,15 @@ class EditMemberController extends GetxController {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+  @override
+  void onInit() {
+    nama.value = data.nama.toString();
+    nim.value = data.nim.toString();
+    role.value = data.role.toString();
+    bidang.value = data.bidang.toString();
+    super.onInit();
+  }
+
   void onSubmit() async {
     if (formKey.currentState!.validate()) {
       isSubmit.value = true;
@@ -35,7 +44,7 @@ class EditMemberController extends GetxController {
       final id = data.id!;
 
       try {
-        await memberService.updateOrder(id, dto);
+        await memberService.updateMember(id, dto);
         homeController.fetchAllMembers();
         Get.offNamedUntil('/home', ModalRoute.withName('/home'));
         Get.snackbar('Update Success', 'Order berhasil diubah');

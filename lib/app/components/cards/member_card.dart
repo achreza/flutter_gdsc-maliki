@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gdscmaliki/app/data/models/member_model.dart';
+import 'package:flutter_gdscmaliki/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter_gdscmaliki/app/routes/app_pages.dart';
 import 'package:flutter_gdscmaliki/constants/constant.dart';
 import 'package:get/get.dart';
 
-class MemberCard extends StatelessWidget {
+class MemberCard extends GetView<HomeController> {
   const MemberCard({
     Key? key,
     required this.data,
@@ -26,7 +27,7 @@ class MemberCard extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: kDefaultMargin * 3),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.DETAIL_MEMBER, arguments: data);
+          controller.bottomDetail(data!);
         },
         child: Container(
             padding: EdgeInsets.symmetric(
@@ -46,6 +47,7 @@ class MemberCard extends StatelessWidget {
                       backgroundColor: backgroundFoto,
                       child: Icon(
                         Icons.person,
+                        color: Colors.white,
                         size: 24,
                       )),
                 ),

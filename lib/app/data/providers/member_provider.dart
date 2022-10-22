@@ -20,7 +20,6 @@ class MemberProvider {
 
   Future<Response?> getAllMember() async {
     final response = await dio!.get('/member');
-    print('Response : ${response}');
     return response;
   }
 
