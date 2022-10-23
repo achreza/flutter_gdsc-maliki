@@ -28,7 +28,7 @@ class SplashView extends GetView<SplashController> {
                       style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all(Colors.black)),
-                      onPressed: (() => Get.offAndToNamed('/home')),
+                      onPressed: (() => controller.navigateToLogin()),
                       child: Text(
                         'Lets get Started',
                         style: TextStyle(color: Colors.white, fontSize: 16),

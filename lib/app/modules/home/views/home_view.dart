@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gdscmaliki/app/components/lists/member_list.dart';
+import 'package:flutter_gdscmaliki/app/routes/app_pages.dart';
 import 'package:flutter_gdscmaliki/constants/constant.dart';
 
 import 'package:get/get.dart';
@@ -15,6 +17,14 @@ class HomeView extends GetView<HomeController> {
         centerTitle: true,
         title: Image.asset('assets/gdsc_white.png', scale: 15),
         backgroundColor: Colors.black,
+        actions: [
+          IconButton(
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                Get.offAllNamed(Routes.LOGIN);
+              },
+              icon: const Icon(Icons.logout))
+        ],
       ),
       body: Obx(
         () => controller.isFetchingMember.isTrue

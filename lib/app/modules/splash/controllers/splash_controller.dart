@@ -1,4 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_gdscmaliki/app/modules/login/controllers/login_controller.dart';
+import 'package:flutter_gdscmaliki/app/routes/app_pages.dart';
+import 'package:flutter_gdscmaliki/constants/constant.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController
@@ -23,5 +26,13 @@ class SplashController extends GetxController
             .value;
     animation.addListener(() => update());
     animationController.forward();
+  }
+
+  void navigateToLogin() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await firebaseInitialization.then((value) {
+      Get.put(LoginController());
+      Get.offNamed(Routes.LOGIN);
+    });
   }
 }

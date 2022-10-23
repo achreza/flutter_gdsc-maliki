@@ -8,10 +8,6 @@ import 'package:get/get.dart';
 import 'app/routes/app_pages.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  // await firebaseInitialization.then((value) {
-  //   Get.put(LoginController());
-  // });
   runApp(
     GetMaterialApp(
       title: "GDSC Maliki",

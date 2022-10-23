@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/views/home_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/register/views/register_view.dart';
+import 'package:flutter_gdscmaliki/app/routes/app_pages.dart';
 import 'package:flutter_gdscmaliki/constants/constant.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -30,10 +31,10 @@ class LoginController extends GetxController {
   _setInitialScreen(User? user) {
     if (user == null) {
       // if the user is not found then the user is navigated to the Register Screen
-      Get.offAll(() => RegisterView());
+      Get.offNamed(Routes.REGISTER);
     } else {
       // if the user exists and logged in the the user is navigated to the Home Screen
-      Get.offAll(() => HomeView());
+      Get.offNamed(Routes.HOME);
     }
   }
 
@@ -41,10 +42,10 @@ class LoginController extends GetxController {
     print(googleSignInAccount);
     if (googleSignInAccount == null) {
       // if the user is not found then the user is navigated to the Register Screen
-      Get.offAll(() => RegisterView());
+      Get.offNamed(Routes.REGISTER);
     } else {
       // if the user exists and logged in the the user is navigated to the Home Screen
-      Get.offAll(() => HomeView());
+      Get.offNamed(Routes.HOME);
     }
   }
 

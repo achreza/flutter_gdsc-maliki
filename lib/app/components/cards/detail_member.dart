@@ -46,94 +46,93 @@ class DetailMemberView extends StatelessWidget {
 
     return Wrap(
       children: [
-        Center(
-          child: Column(
-            children: [
-              Center(
-                child: Container(
-                  margin: EdgeInsets.only(top: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        children: [
-                          Text('Event Diikuti',
-                              style: GoogleFonts.montserrat(
-                                  fontSize: 12, color: Colors.grey)),
-                          Text('12',
-                              style: GoogleFonts.montserrat(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                      CircleAvatar(
-                          radius: 40,
-                          backgroundColor: backgroundFoto,
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.white,
-                            size: 50,
-                          )),
-                      Column(
-                        children: [
-                          Text('kontribusi Event',
-                              style: GoogleFonts.montserrat(
-                                  fontSize: 12, color: Colors.grey)),
-                          Text('1',
-                              style: GoogleFonts.montserrat(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                    ],
-                  ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      children: [
+                        Text('Event Diikuti',
+                            style: GoogleFonts.montserrat(
+                                fontSize: 12, color: Colors.grey)),
+                        Text('12',
+                            style: GoogleFonts.montserrat(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                    CircleAvatar(
+                        radius: 40,
+                        backgroundColor: backgroundFoto,
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                          size: 50,
+                        )),
+                    Column(
+                      children: [
+                        Text('kontribusi Event',
+                            style: GoogleFonts.montserrat(
+                                fontSize: 12, color: Colors.grey)),
+                        Text('1',
+                            style: GoogleFonts.montserrat(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              Divider(),
-              Center(
-                child: Text(
-                  member.nama.toString(),
-                  style: GoogleFonts.montserrat(
-                      fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Text(
-                member.nim.toString(),
+            ),
+            Divider(),
+            Center(
+              child: Text(
+                member.nama.toString(),
                 style: GoogleFonts.montserrat(
-                    fontSize: 14, fontWeight: FontWeight.w400),
+                    fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              Text(
-                member.bidang.toString(),
-                style: GoogleFonts.montserrat(
-                    fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                member.role.toString(),
-                style: GoogleFonts.montserrat(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: backgroundFoto),
-              ),
-              Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                      onPressed: () =>
-                          Get.toNamed(Routes.EDIT_MEMBER, arguments: member),
-                      child: Text('Edit Data')),
-                  ElevatedButton(
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.red)),
-                      onPressed: () => deleteMember(),
-                      child: Text('Hapus Data'))
-                ],
-              ),
-            ],
-          ),
+            ),
+            Text(
+              member.nim.toString(),
+              style: GoogleFonts.montserrat(
+                  fontSize: 14, fontWeight: FontWeight.w400),
+            ),
+            Text(
+              member.bidang.toString(),
+              style: GoogleFonts.montserrat(
+                  fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              member.role.toString(),
+              style: GoogleFonts.montserrat(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: backgroundFoto),
+            ),
+            Divider(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                    onPressed: () =>
+                        Get.toNamed(Routes.EDIT_MEMBER, arguments: member),
+                    child: Text('Edit Data')),
+                ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.red)),
+                    onPressed: () => deleteMember(),
+                    child: Text('Hapus Data'))
+              ],
+            ),
+          ],
         ),
       ],
     );

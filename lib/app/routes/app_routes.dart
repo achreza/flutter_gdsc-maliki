@@ -17,7 +17,6 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const REGISTER = '/register';
   static const SPLASH = '/splash';
-
   static const CREATE_MEMBER = '/create-member';
   static const EDIT_MEMBER = '/edit-member';
 }
