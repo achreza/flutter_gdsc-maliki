@@ -20,13 +20,15 @@ class EditMemberController extends GetxController {
   final RxString role = ''.obs;
   final RxString bidang = ''.obs;
 
+  final TextEditingController? pilihanRole = TextEditingController();
+
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   void onInit() {
     nama.value = data.nama.toString();
     nim.value = data.nim.toString();
-    role.value = data.role.toString();
+    role.value = pilihanRole!.text.toString();
     bidang.value = data.bidang.toString();
     super.onInit();
   }
@@ -38,7 +40,7 @@ class EditMemberController extends GetxController {
       final dto = updateMemberRequest(
         nama: nama.value,
         nim: int.parse(nim.value),
-        role: role.value,
+        role: pilihanRole!.text.toString(),
         bidang: bidang.value,
       );
 

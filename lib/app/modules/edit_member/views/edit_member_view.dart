@@ -2,11 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gdscmaliki/constants/constant.dart';
 
 import 'package:get/get.dart';
+import 'package:select_form_field/select_form_field.dart';
 import 'package:wc_form_validators/wc_form_validators.dart';
 import '../controllers/edit_member_controller.dart';
 
 class EditMemberView extends GetView<EditMemberController> {
   final inputSpace = 7.0;
+
+  final List<Map<String, dynamic>> _items = [
+    {
+      'value': 'Lead',
+      'label': 'Lead Role',
+      'icon': Icon(Icons.star),
+      'textStyle': TextStyle(color: Colors.blue),
+    },
+    {
+      'value': 'Core Team',
+      'label': 'Core Team Role',
+      'icon': Icon(Icons.star),
+      'textStyle': TextStyle(color: Colors.red),
+    },
+    {
+      'value': 'Association Core',
+      'label': 'Association Core Role',
+      'icon': Icon(Icons.star),
+      'textStyle': TextStyle(color: Colors.green),
+    },
+    {
+      'value': 'Member',
+      'label': 'Member Role',
+      'icon': Icon(Icons.grade),
+      'textStyle': TextStyle(color: Colors.grey),
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +110,7 @@ class EditMemberView extends GetView<EditMemberController> {
                       SizedBox(height: inputSpace),
                       TextFormField(
                         initialValue: controller.nim.value,
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: 'Masukkan NIM Pengguna',
@@ -112,7 +142,7 @@ class EditMemberView extends GetView<EditMemberController> {
                       SizedBox(height: inputSpace),
                       TextFormField(
                         initialValue: controller.bidang.value,
-                        keyboardType: TextInputType.number,
+                        keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: 'Masukkan Bidang Pengguna',
@@ -136,14 +166,16 @@ class EditMemberView extends GetView<EditMemberController> {
                         ),
                       ),
                       SizedBox(height: inputSpace),
-                      TextFormField(
-                        initialValue: controller.role.value,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Masukkan Role Pengguna',
-                        ),
-                        onChanged: (value) => controller.role.value = value,
+                      SelectFormField(
+                        type: SelectFormFieldType.dropdown, // or can be dialog
+                        icon: Icon(Icons.star),
+                        labelText: 'Role',
+                        items: _items,
+                        controller: controller.pilihanRole,
+                        onChanged: (value) =>
+                            controller.pilihanRole!.text = value,
+                        onSaved: (value) =>
+                            controller.pilihanRole!.text = value!,
                       ),
                     ],
                   ),

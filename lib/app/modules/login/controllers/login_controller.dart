@@ -31,7 +31,7 @@ class LoginController extends GetxController {
   _setInitialScreen(User? user) {
     if (user == null) {
       // if the user is not found then the user is navigated to the Register Screen
-      Get.offNamed(Routes.REGISTER);
+      Get.offNamed(Routes.LOGIN);
     } else {
       // if the user exists and logged in the the user is navigated to the Home Screen
       Get.offNamed(Routes.HOME);

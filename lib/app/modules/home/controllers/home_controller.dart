@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gdscmaliki/app/components/cards/detail_member.dart';
 import 'package:flutter_gdscmaliki/app/data/models/member_model.dart';
 import 'package:flutter_gdscmaliki/app/data/services/member_service.dart';
+import 'package:flutter_gdscmaliki/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:wc_form_validators/wc_form_validators.dart';
 
@@ -34,6 +36,43 @@ class HomeController extends GetxController {
     } finally {
       isFetchingMember.value = false;
     }
+  }
+
+  showAlertDialog(BuildContext context) {
+    // set up the buttons
+    Widget cancelButton = TextButton(
+      child: Text("Tidak"),
+      onPressed: () {
+        Get.back();
+      },
+    );
+    Widget continueButton = TextButton(
+      child: Text("Ya"),
+      onPressed: () async {
+        await FirebaseAuth.instance
+            .signOut()
+            .then((_) => Get.snackbar('System Alert', 'Anda Telah Logout'));
+        Get.offAllNamed(Routes.LOGIN)!;
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Logout"),
+      content: Text("Apa anda yakin ingin Log out dari Aplikasi ?"),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 
   void navigateToCreateMember() {

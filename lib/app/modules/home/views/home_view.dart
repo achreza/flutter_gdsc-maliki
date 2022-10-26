@@ -20,8 +20,7 @@ class HomeView extends GetView<HomeController> {
         actions: [
           IconButton(
               onPressed: () async {
-                await FirebaseAuth.instance.signOut();
-                Get.offAllNamed(Routes.LOGIN);
+                controller.showAlertDialog(context);
               },
               icon: const Icon(Icons.logout))
         ],

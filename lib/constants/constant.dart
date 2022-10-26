@@ -16,7 +16,7 @@ FirebaseAuth auth = FirebaseAuth.instance;
 FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 GoogleSignIn googleSign = GoogleSignIn();
 
-const apiBaseUrl = 'http://192.168.1.104:3000';
+const apiBaseUrl = 'http://10.5.3.222:3000';
 
 final kDefaultPadding = 8.0;
 final kDefaultMargin = 8.0;
