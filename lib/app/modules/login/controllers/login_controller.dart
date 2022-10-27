@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_gdscmaliki/app/data/models/profile.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/views/home_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/register/views/register_view.dart';
 import 'package:flutter_gdscmaliki/app/routes/app_pages.dart';
@@ -34,7 +35,10 @@ class LoginController extends GetxController {
       Get.offNamed(Routes.LOGIN);
     } else {
       // if the user exists and logged in the the user is navigated to the Home Screen
-      Get.offNamed(Routes.HOME);
+      UserProfile userProfile = new UserProfile(
+          username: user.displayName.toString(),
+          photoURL: user.photoURL.toString());
+      Get.offNamed(Routes.HOME, arguments: userProfile);
     }
   }
 
@@ -44,8 +48,11 @@ class LoginController extends GetxController {
       // if the user is not found then the user is navigated to the Register Screen
       Get.offNamed(Routes.REGISTER);
     } else {
+      UserProfile user = new UserProfile(
+          username: googleSignInAccount.displayName.toString(),
+          photoURL: googleSignInAccount.photoUrl.toString());
       // if the user exists and logged in the the user is navigated to the Home Screen
-      Get.offNamed(Routes.HOME);
+      Get.offNamed(Routes.HOME, arguments: user);
     }
   }
 
@@ -56,6 +63,8 @@ class LoginController extends GetxController {
       if (googleSignInAccount != null) {
         GoogleSignInAuthentication googleSignInAuthentication =
             await googleSignInAccount.authentication;
+
+        print(googleSignInAccount.displayName);
 
         AuthCredential credential = GoogleAuthProvider.credential(
           accessToken: googleSignInAuthentication.accessToken,

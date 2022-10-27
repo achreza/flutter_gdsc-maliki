@@ -1,5 +1,6 @@
 import 'package:flutter_gdscmaliki/app/data/providers/member_provider.dart';
 import 'package:flutter_gdscmaliki/app/data/services/member_service.dart';
+import 'package:flutter_gdscmaliki/app/modules/login/controllers/login_controller.dart';
 import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';

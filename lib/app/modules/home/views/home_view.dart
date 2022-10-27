@@ -13,18 +13,6 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     controller.fetchAllMembers();
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Image.asset('assets/gdsc_white.png', scale: 15),
-        backgroundColor: Colors.black,
-        actions: [
-          IconButton(
-              onPressed: () async {
-                controller.showAlertDialog(context);
-              },
-              icon: const Icon(Icons.logout))
-        ],
-      ),
       body: Obx(
         () => controller.isFetchingMember.isTrue
             ? _LoadingState()

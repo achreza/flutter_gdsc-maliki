@@ -1,3 +1,4 @@
+import 'package:flutter_gdscmaliki/app/modules/home/views/home_nav_view.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter_gdscmaliki/app/modules/create_member/bindings/create_member_binding.dart';
@@ -23,7 +24,7 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.HOME,
-      page: () => HomeView(),
+      page: () => HomeNavView(),
       binding: HomeBinding(),
     ),
     GetPage(

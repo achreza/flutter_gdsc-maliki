@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gdscmaliki/app/data/models/member_model.dart';
 import 'package:flutter_gdscmaliki/constants/constant.dart';
 
 import 'package:get/get.dart';

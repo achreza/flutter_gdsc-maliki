@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '890676442108',
     projectId: 'gdscmaliki-7ec26',
     storageBucket: 'gdscmaliki-7ec26.appspot.com',
-    iosClientId: '890676442108-bqtj27tqrenshrrs8bj4d978mpjgruid.apps.googleusercontent.com',
+    iosClientId:
+        '890676442108-bqtj27tqrenshrrs8bj4d978mpjgruid.apps.googleusercontent.com',
     iosBundleId: 'com.gdscmaliki.flutterGdscmaliki',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '890676442108',
     projectId: 'gdscmaliki-7ec26',
     storageBucket: 'gdscmaliki-7ec26.appspot.com',
-    iosClientId: '890676442108-bqtj27tqrenshrrs8bj4d978mpjgruid.apps.googleusercontent.com',
+    iosClientId:
+        '890676442108-bqtj27tqrenshrrs8bj4d978mpjgruid.apps.googleusercontent.com',
     iosBundleId: 'com.gdscmaliki.flutterGdscmaliki',
   );
 }

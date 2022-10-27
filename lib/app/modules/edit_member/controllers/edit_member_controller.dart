@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gdscmaliki/app/data/dto/request/update_member_request.dart';
 import 'package:flutter_gdscmaliki/app/data/models/member_model.dart';
+import 'package:flutter_gdscmaliki/app/data/models/profile.dart';
 import 'package:flutter_gdscmaliki/app/data/services/member_service.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter_gdscmaliki/constants/constant.dart';
@@ -49,7 +50,7 @@ class EditMemberController extends GetxController {
       try {
         await memberService.updateMember(id, dto);
         homeController.fetchAllMembers();
-        Get.offAllNamed('/home');
+        Get.back();
         Get.snackbar('Update Success', 'Order berhasil diubah',
             backgroundColor: primaryColor, colorText: Colors.white);
       } catch (e) {

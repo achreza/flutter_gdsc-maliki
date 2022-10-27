@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gdscmaliki/app/data/dto/request/create_member_request.dart';
+import 'package:flutter_gdscmaliki/app/data/models/profile.dart';
 import 'package:flutter_gdscmaliki/app/data/services/member_service.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter_gdscmaliki/constants/constant.dart';
