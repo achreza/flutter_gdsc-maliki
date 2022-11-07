@@ -2,9 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gdscmaliki/app/components/cards/detail_member.dart';
+import 'package:flutter_gdscmaliki/app/data/models/event_model.dart';
 import 'package:flutter_gdscmaliki/app/data/models/member_model.dart';
 import 'package:flutter_gdscmaliki/app/data/models/profile.dart';
+import 'package:flutter_gdscmaliki/app/data/services/event_service.dart';
 import 'package:flutter_gdscmaliki/app/data/services/member_service.dart';
+import 'package:flutter_gdscmaliki/app/modules/home/views/event_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/views/home_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/login/controllers/login_controller.dart';
 import 'package:flutter_gdscmaliki/app/routes/app_pages.dart';
@@ -18,15 +21,18 @@ class HomeController extends GetxController
   //TODO: Implement HomeController
 
   final RxList<Data> members = RxList();
+  final RxList<EventData> events = RxList();
 
   final RxBool isFetchingMember = true.obs;
+  final RxBool isFetchingEvent = true.obs;
   final MemberService memberService = Get.find<MemberService>();
+  final EventService eventService = Get.find<EventService>();
   final UserProfile userProfile = Get.arguments;
 
   final List<Widget> pages = [
     HomeView(),
-    HomeView(),
-    HomeView(),
+    EventView(),
+    EventView(),
   ];
 
   final RxInt tabIndex = 0.obs;
@@ -43,8 +49,6 @@ class HomeController extends GetxController
     super.onInit();
   }
 
-  getProfile() {}
-
   void fetchAllMembers() async {
     isFetchingMember.value = true;
 
@@ -59,6 +63,23 @@ class HomeController extends GetxController
       }
     } finally {
       isFetchingMember.value = false;
+    }
+  }
+
+  void fetchAllEvents() async {
+    isFetchingEvent.value = true;
+
+    try {
+      Get.log('fetching Events on Progress');
+      final events = await eventService.getAllEvents();
+      this.events.value = events.data;
+      Get.log('fetching Events success');
+    } catch (e) {
+      if (e is DioError) {
+        print(e.toString());
+      }
+    } finally {
+      isFetchingEvent.value = false;
     }
   }
 

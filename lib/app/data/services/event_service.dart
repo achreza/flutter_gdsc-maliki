@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dio/src/response.dart' as RS;
 import 'package:flutter_gdscmaliki/app/data/dto/request/create_member_request.dart';
 import 'package:flutter_gdscmaliki/app/data/dto/request/update_member_request.dart';
+import 'package:flutter_gdscmaliki/app/data/dto/response/list_event_response.dart';
 import 'package:flutter_gdscmaliki/app/data/dto/response/list_member_response.dart';
 import 'package:flutter_gdscmaliki/app/data/models/member_model.dart';
 import 'package:flutter_gdscmaliki/app/data/providers/member_provider.dart';
@@ -23,23 +24,26 @@ class EventService {
     Future<EventService> init() async => this;
   }
 
-  Future<ListMemberResponse> getAllEvents() async {
+  Future<ListEventResponse> getAllEvents() async {
     final response = await eventProvider.getAllEvents();
-    final ListMemberResponse memberResponse =
-        ListMemberResponse.fromJson(response!.data);
 
-    return memberResponse;
+    final ListEventResponse eventResponse =
+        ListEventResponse.fromJson(response!.data);
+
+    print(eventResponse);
+
+    return eventResponse;
   }
 
   Future<void> getDetailEvent(int id) async {
     final response = await eventProvider.getEvent(id);
-    final MemberResponse memberResponse =
+    final MemberResponse eventResponse =
         MemberResponse.fromJson(response!.data);
     // return memberResponse.data;
   }
 
   Future<void> deleteEvent(int id) async {
-    final response = await eventProvider.delete(id);
+    final response = await eventProvider.deleteEvent(id);
     if (response.statusCode == HttpStatus.ok) {
       log('Delete Success');
     } else {

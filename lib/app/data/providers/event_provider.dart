@@ -14,29 +14,24 @@ class EventProvider {
   ));
 
   Future<Response?> getEvent(int id) async {
-    final response = await dio!.get('/member$id');
+    final response = await dio!.get('/event/$id');
     return response;
   }
 
   Future<Response?> getAllEvents() async {
-    final response = await dio!.get('/member');
+    final response = await dio!.get('/event/');
     return response;
   }
 
   Future<Response> postEvent(CreateMemberRequest data) async =>
-      await dio!.post('/member', data: data.toJson());
+      await dio!.post('/event/', data: data.toJson());
 
-  Future<Response> deleteEvent(int id) async =>
-      await dio!.delete('/member/$id');
+  Future<Response> deleteEvent(int id) async => await dio!.delete('/event/$id');
 
   Future<Response> update(int id, updateMemberRequest data) =>
-      dio!.patch('/member/$id',
+      dio!.patch('/event/$id',
           options: Options(headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           }),
           data: data.toJson());
-
-  Future<Response> detail(int id) => dio!.get('/member/$id');
-
-  Future<Response> delete(int id) => dio!.delete('/member/$id');
 }
