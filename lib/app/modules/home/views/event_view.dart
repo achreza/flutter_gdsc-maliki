@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gdscmaliki/app/components/lists/Event_List.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter_gdscmaliki/constants/constant.dart';
 
@@ -21,7 +22,7 @@ class EventView extends GetView<HomeController> {
             ? FloatingActionButton(
                 backgroundColor: primaryColor,
                 onPressed: () => controller.navigateToCreateMember(),
-                child: Icon(Icons.person_add),
+                child: Icon(Icons.library_add),
               )
             : Container(),
       ),
@@ -51,8 +52,7 @@ class _NotEmptyState extends StatelessWidget {
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
               ),
             ),
-            // MemberList(data: controller.members),
-            Text(controller.events.toString())
+            EventList(data: controller.events),
           ],
         ),
       ),

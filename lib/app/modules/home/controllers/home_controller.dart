@@ -9,6 +9,7 @@ import 'package:flutter_gdscmaliki/app/data/services/event_service.dart';
 import 'package:flutter_gdscmaliki/app/data/services/member_service.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/views/event_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/home/views/home_view.dart';
+import 'package:flutter_gdscmaliki/app/modules/home/views/profile_view.dart';
 import 'package:flutter_gdscmaliki/app/modules/login/controllers/login_controller.dart';
 import 'package:flutter_gdscmaliki/app/routes/app_pages.dart';
 import 'package:flutter_gdscmaliki/constants/constant.dart';
@@ -32,7 +33,7 @@ class HomeController extends GetxController
   final List<Widget> pages = [
     HomeView(),
     EventView(),
-    EventView(),
+    ProfileView(),
   ];
 
   final RxInt tabIndex = 0.obs;
